@@ -1,0 +1,20 @@
+<html>
+
+<script>
+  const unordered = {
+    'b': 'foo',
+    'c': 'bar',
+    'a': 'baz'
+  };
+
+  document.write('Unordered: ' + JSON.stringify(unordered) + '<br /><br />');
+  // → '{"b":"foo","c":"bar","a":"baz"}'
+  const ordered = {};
+  Object.keys(unordered).sort().forEach(function(key) {
+    ordered[key] = unordered[key];
+  });
+
+  document.write('Ordered: ' + JSON.stringify(ordered) + '<br /><br />');
+  // → '{"a":"baz","b":"foo","c":"bar"}'
+</script>
+</html>

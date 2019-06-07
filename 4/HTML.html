@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link href="CSS.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  </head>
+  <body>
+    <div class="rectangle">
+      <div class="square-small"></div>
+    </div>
+    <button id="animation-button">run</button>
+    <script>
+      $('#animation-button').click(function() {
+        $('.rectangle')
+        .find('.square-small')
+        .animate({
+          left: 280
+        }, 'slow')
+        .animate({
+          left: 0
+        }, 'slow')
+          });
+    </script>
+  </body>
+</html>

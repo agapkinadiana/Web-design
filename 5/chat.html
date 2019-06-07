@@ -1,0 +1,57 @@
+<html><head>
+	<title>Comet Server - Пример php чата</title>
+   	<meta charset="utf-8">
+	<script language="JavaScript" type="text/javascript" src="https://comet-server.com/js/lib/jquery.min.js"></script>
+	<script language="JavaScript" type="text/javascript" src="https://comet-server.com/CometServerApi.js"></script>
+</head>
+    <body>
+        <div id="WebChatFormForm"></div>
+        <input type="text" id="WebChatNameID" placeholder="Укажите ваше имя..."> <br>
+        <textarea id="WebChatTextID" placeholder="Отправьте сообщение в online чат..."></textarea><br>
+
+        <input type="button" onclick="web_send_msg();" value="Отправить">
+        <div id="answer_div"></div>
+
+        <script>
+             // Отправляет сообщение в чат
+             function web_send_msg()
+             {
+                 // Получение значений из элементов ввода.
+                 var text = $("#WebChatTextID").val(); // Получаем текст сообщения
+                 var name = $("#WebChatNameID").val(); // Получаем имя пользователя
+
+                 // Очистка поля с текстом сообщения
+                 $("#WebChatTextID").val("");
+
+                 // Добавление отправленного сообщения к списку сообщений.
+                 $("#WebChatFormForm").append("<p><b>"+name+": </b>"+text+"</p>");
+
+                 // Отправка сообщения в канал чата
+                 CometServer().web_pipe_send("web_chat_pipe", {"text":text, "name":name});
+             }
+
+
+             // Функция выполнится после загрузки страницы
+             $(document).ready(function()
+             {
+                 CometServer().start({dev_id:1}) // Подключаемся к комет серверу
+
+                 // Подписываемся на канал в который и будут отправляться сообщения чата.
+                 CometServer().subscription("web_chat_pipe", function(msg)
+                 {
+                    console.log(msg)
+                     // Добавление полученного сообщения к списку сообщений.
+                     $("#WebChatFormForm").append("<p><b>"+msg.data.name+": </b>"+msg.data.text+"</p>");
+                 });
+
+                 // Подписываемся на канал в который и будут отправляться уведомления о доставке отправленных сообщений.
+                 CometServer().subscription("#web_chat_pipe", function(p)
+                 {
+                    console.log(p)
+                     $("#answer_div").html("Сообщение доставлено "+p.data.number_messages+" получателям. "+p.data.error);
+                 });
+             });
+        </script>
+
+
+</body></html>

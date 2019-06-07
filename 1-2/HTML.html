@@ -1,0 +1,31 @@
+<<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <button onclick="getTime()" id="button">get time</button>
+  <script>
+    function getTime() {
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', 'http://localhost:8080?', false);  //false - синхронный
+      //xhr.send();
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState != 4) return;
+        button.innerHTML = 'is ready';
+        if (xhr.status != 200) {
+          // обработать ошибку
+          alert(xhr.status + ': ' + xhr.statusText);
+        } else {
+          // вывести результат
+          alert(xhr.responseText);
+        }
+      }
+      xhr.send();
+      button.innerHTML = '...';
+      button.disabled = true;
+    }
+  </script>
+  </body>
+</html>

@@ -1,0 +1,18 @@
+.rectangle
+{
+   width: 300px;
+   height: 20px;
+   display: block;
+   position: relative;
+   border: 1px solid black;
+   margin: 20px 0;
+}
+
+.square-small
+{
+   display: block;
+   width: 20px;
+   height: 20px;
+   position: absolute;
+   background-color: red;
+}

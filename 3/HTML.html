@@ -1,0 +1,18 @@
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    </head>
+    <body>
+        <button>загрузить</button>
+        <div id="news">нет новостей</div>
+        <script type="text/javascript">
+          $(function(){
+            $('button').click(function(){
+              $('#news').load('ajax.php', {'event':'начало: ', 'date':'13.07.2018'});
+              //$('#news').load('ajax.php', function(){alert('запрос выполнен');});   //ф обратного вызова
+            });
+          });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,24 @@
+<html>
+<div type="text" id="name" height="100" width="200" background="gray"></div>
+<div type="text" id="name2" height="100" width="200" background="gray"></div>
+
+<script>
+
+var numbers = "[2, 5, 0, 3]";
+
+numbers = JSON.parse(numbers);
+min = numbers[0];
+for (i = 0; i < numbers.length; ++i)
+{
+	if (min > numbers[i]) min = numbers[i];
+}
+document.getElementById('name').innerHTML=numbers;
+document.getElementById('name2').innerHTML=min;
+//----------------------------------------------------------------------
+var user = '{"name": "Diana", "age": "18", "isAdmin": true}'
+user  = JSON.parse(user);
+
+alert(user.name + ", years " + user.age + ", isAdmin: " + user.isAdmin);
+   
+</script>
+</html>

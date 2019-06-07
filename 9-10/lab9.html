@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<script>
+	Data = new Date();
+	document.write(Data + '<br \/>' + '<br \/>');
+	document.write("________________________________" + '<br \/>' + '<br \/>');
+
+		var num = [6, 9, 12];
+
+		document.write("source array: " + num + '<br \/>' + '<br \/>');
+
+		for(var i=0;i<num.length; i++) {
+			num[i] = num[i].toString(2);
+		}
+
+		document.write("binary translation: " + num + '<br \/>');
+
+		for(var i=0;i<num.length; i++) {
+			num[i] = parseInt(num[i],2);
+		}
+
+		document.write("transfer to decimal number system: " + num + '<br \/>');
+	</script>
+</html>

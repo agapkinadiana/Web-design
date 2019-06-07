@@ -1,0 +1,58 @@
+{
+  bookbase: [
+    {
+      title:"Гарри Поттер и философский камень",
+      author:"Джоан Ролинг",
+      cost:500,
+      quantity:15
+    },
+    {
+      title:"Дракула",
+      author:"Брэм Стокер",
+      cost:430,
+      quantity:5
+    },
+    {
+      title:"Преступление и наказание",
+      author:"Федор Достоевский",
+      cost:400,
+      quantity:10
+    },
+    {
+      title:"451° по Фаренгейту",
+      author:"Рей Брэдбери",
+      cost:415,
+      quantity:9
+    },
+    {
+      title:"1984",
+      author:"Джордж Оруэлл",
+      cost:290,
+      quantity:16
+    },
+    {
+      title:"Мастер и Маргарита",
+      author:"Михаил Булгаков",
+      cost:350,
+      quantity:5
+    },
+    {
+      title:"Маленький принц",
+      author:"Антуан де Сент-Экзюпери",
+      cost:300,
+      quantity:10
+    },
+    {
+      title:"Цветы для Элджернона",
+      author:"Даниел Киз",
+      cost:440,
+      quantity:18
+    },
+    {
+      title:"Убить пересмешника",
+      author:"Харпер Ли",
+      cost:500,
+      quantity:20
+    },
+    ]
+}

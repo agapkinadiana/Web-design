@@ -1,0 +1,30 @@
+<html>
+  <head>
+      <meta charset="utf-8">
+      <script type='text/javascript'>
+        function start(){
+          xhttp=new XMLHttpRequest();
+          xhttp.open('GET','bookbase.json',true);
+          xhttp.send();
+          xhttp.onreadystatechange=function(){
+            if (xhttp.readyState==4){
+              //Принятое содержимое json файла должно быть вначале обработано функцией eval
+              var json=eval( '('+xhttp.responseText+')' );
+              //Далее мы можем спокойно использовать данные
+              document.getElementById('wrap').style.display='block';
+              document.getElementById('res1').innerHTML=json.bookbase[3].author;
+            }
+          }
+        }
+      </script>
+  </head>
+  <body>
+    <input type='button' value='Запросить содержимое' onclick='start()'/>
+    <br /><br />
+    <div id='wrap' style='display:none;'>
+      <hr />
+      <p>Автор: <b><span id='res1'></span></b></p>
+      <hr />
+    </div>
+  </body>
+</html>
